@@ -1,0 +1,11 @@
+name: 'QMS Integrity check'
+description: 'Checks the files cheked in for existence of required tags'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install dependencies
+      run: |
+        echo "Installing dependencies"
+        pip install -r requirements.txt
+      shell: bash
