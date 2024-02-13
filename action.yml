@@ -26,7 +26,7 @@ runs:
         echo "Documentation files are located at ${{ inputs.doc_files_dir }}"
         ls -l && echo "^^^"
         echo $(pwd) && echo "<---"
-        ls -l /home/runner/work/_actions/nn-dma && echo "####"
+        ls -l /home/runner/work/_actions/nn-dma/integrity-check && echo "####"
         echo "^^^"
 
       shell: bash
