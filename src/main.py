@@ -198,7 +198,7 @@ if __name__ == "__main__":
     # if len(sys.argv) > 2:
     try:
         exclude_tags = json.loads(sys.argv[3])
-    except json.JSONDecodeError:
+    except (json.JSONDecodeError, IndexError):
         exclude_tags = []
 
     allowlist = ["URS", "GxP", "non-GxP", "CA", "IV"] + exclude_tags
