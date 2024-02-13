@@ -18,7 +18,15 @@ runs:
         echo "Installing dependencies"
         pip install behave
       shell: bash
+    - name: show files
+      run: |
+        echo "Feature files are located at ${{ inputs.feature_files_dir }}"
+        echo "Documentation files are located at ${{ inputs.doc_files_dir }}"
+        ls -l .
+        ls -l ${{ inputs.feature_files_dir }}
+        ls -l ${{ inputs.doc_files_dir }}
 
+      shell: bash
     - name: Run integrity check
       run: |
         echo "Running integrity check"
