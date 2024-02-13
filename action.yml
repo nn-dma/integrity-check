@@ -22,7 +22,8 @@ runs:
       run: |
         echo "Feature files are located at ${{ inputs.feature_files_dir }}"
         echo "Documentation files are located at ${{ inputs.doc_files_dir }}"
-        ls -la ./
+        ls -l .
+        echo "^^^^"
 
       shell: bash
     - name: Run integrity check
