@@ -1,5 +1,14 @@
 name: 'QMS Integrity check'
 description: 'Checks the files cheked in for existence of required tags'
+inputs:
+  feature_files_dir:
+    required: true
+    description: 'The directory where the feature files are located'
+    default: '.'
+  doc_files_dir:
+    required: true
+    description: 'The directory where the documentation files are located'
+    default: '.'
 
 runs:
   using: 'composite'
@@ -8,4 +17,10 @@ runs:
       run: |
         echo "Installing dependencies"
         pip install behave
+      shell: bash
+
+    - name: Run integrity check
+      run: |
+        echo "Running integrity check"
+        python3 src/main.py ${{ inputs.feature_files_dir }} ${{ inputs.doc_files_dir }}
       shell: bash
