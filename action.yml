@@ -24,14 +24,14 @@ runs:
       run: |
         echo "Feature files are located at ${{ inputs.feature_files_dir }}"
         echo "Documentation files are located at ${{ inputs.doc_files_dir }}"
-        ls -l ${{ github.workspace }}
         ls -l && echo "^^^"
         echo $(pwd) && echo "<---"
+        ls -l /home/runner/work && echo "####"
         echo "^^^"
 
       shell: bash
     - name: Run integrity check
       run: |
         echo "Running integrity check"
-        python3 ${{ github.workspace }} src/main.py ${{ inputs.feature_files_dir }} ${{ inputs.doc_files_dir }}
+        python3 /home/runner/work/src/main.py ${{ inputs.feature_files_dir }} ${{ inputs.doc_files_dir }}
       shell: bash
