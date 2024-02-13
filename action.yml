@@ -26,13 +26,13 @@ runs:
         echo "Documentation files are located at ${{ inputs.doc_files_dir }}"
         ls -l && echo "^^^"
         echo $(pwd) && echo "<---"
-        ls -l /home/runner/work/_actions/nn-dma/integrity-check && echo "####"
+        ls -l /home/runner/work/_actions/nn-dma/integrity-check/main && echo "####"
         echo "^^^"
 
       shell: bash
     - name: Run integrity check
       run: |
         echo "Running integrity check"
-        ACTUAL_DIR=/home/runner/work/_actions/nn-dma/integrity-check
+        ACTUAL_DIR=/home/runner/work/_actions/nn-dma/integrity-check/main
         python3 $ACTUAL_DIR/src/main.py ${{ inputs.feature_files_dir }} ${{ inputs.doc_files_dir }}
       shell: bash
