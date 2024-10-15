@@ -15,11 +15,13 @@ runs:
   steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Install dependencies
+    - name: Pip install
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
       run: |
         echo "Installing dependencies"
         pip install behave
-      shell: bash
     - name: show files
       run: |
         echo "Feature files are located at ${{ inputs.feature_files_dir }}"
