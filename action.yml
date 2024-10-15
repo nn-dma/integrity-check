@@ -22,6 +22,7 @@ runs:
     - run: |
         echo "Installing dependencies"
         pip install behave
+      shell: bash
     - name: show files
       run: |
         echo "Feature files are located at ${{ inputs.feature_files_dir }}"
@@ -30,7 +31,6 @@ runs:
         echo $(pwd) && echo "<---"
         ls -l /home/runner/work/_actions/nn-dma/integrity-check/main && echo "####"
         echo "^^^"
-
       shell: bash
     - name: Run integrity check
       run: |
