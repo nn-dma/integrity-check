@@ -39,5 +39,6 @@ runs:
     - name: Run integrity check
       run: |
         echo "Running integrity check"
+        echo ${{ inputs.exclude_tags }}
         python3 ${{ github.action_path }}/src/main.py ${{ inputs.feature_files_dir }} ${{ inputs.doc_files_dir }} ${{ inputs.exclude_tags }}
       shell: bash
