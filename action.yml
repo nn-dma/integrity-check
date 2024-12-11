@@ -21,7 +21,7 @@ runs:
       uses: actions/checkout@v4.1.7
       with:
         repository: nn-dma/integrity-check
-        path: .
+        path: intergrity-checks 
     - name: Pip install
       uses: actions/setup-python@v5
       with:
