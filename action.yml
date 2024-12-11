@@ -36,5 +36,5 @@ runs:
       run: |
         echo "Running integrity check"
         ACTUAL_DIR=/home/runner/work/_actions/nn-dma/integrity-check/main
-        python3 $ACTUAL_DIR/src/main.py ${{ inputs.feature_files_dir }} ${{ inputs.doc_files_dir }}
+        python3 $ACTUAL_DIR/src/main.py ${{ inputs.feature_files_dir }} ${{ inputs.doc_files_dir }} '${{ parameters.exclude_tags }}'
       shell: bash
