@@ -19,6 +19,11 @@ runs:
   steps:
     - name: Checkout code
       uses: actions/checkout@v4.1.7
+    - name: Checkout code
+      uses: actions/checkout@v4.1.7
+      with:
+        repository: nn-dma/integrity-check
+        path: .
     - name: Pip install
       uses: actions/setup-python@v5
       with:
