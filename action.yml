@@ -21,7 +21,7 @@ runs:
       uses: actions/checkout@v4.1.7
       with:
         repository: nn-dma/integrity-check
-        path: intergrity-checks 
+        path: . 
     - name: Pip install
       uses: actions/setup-python@v5
       with:
@@ -45,6 +45,6 @@ runs:
         pwd 
         tree
         ls
-        ACTUAL_DIR=/home/runner/work/_actions/nn-dma/integrity-check
+        ACTUAL_DIR=/home/runner/work/datahub-backend/datahub-backend
         python3 $ACTUAL_DIR/src/main.py ${{ inputs.feature_files_dir }} ${{ inputs.doc_files_dir }} '${{ inputs.exclude_tags }}'
       shell: bash
