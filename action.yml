@@ -9,6 +9,10 @@ inputs:
     required: true
     description: 'The directory where the documentation files are located'
     default: '.'
+  exclude_tags:
+    required: false
+    description: 'Additional tags to exclude from the integrity check'
+    default: '[]'
 
 runs:
   using: 'composite'
