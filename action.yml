@@ -1,5 +1,5 @@
 name: 'QMS Integrity check'
-description: 'Checks the files cheked in for existence of required tags'
+description: 'Checks the files checked in for the existence of required tags'
 inputs:
   feature_files_dir:
     required: true
@@ -9,13 +9,17 @@ inputs:
     required: true
     description: 'The directory where the documentation files are located'
     default: '.'
+  exclude_tags:
+    required: false
+    description: 'Additional tags to exclude from the integrity check'
+    default: '[]'
 
 runs:
   using: 'composite'
   steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Pip install
+    - name: Setup Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
@@ -23,18 +27,18 @@ runs:
         echo "Installing dependencies"
         pip install behave
       shell: bash
-    - name: show files
+    - name: Show files
       run: |
         echo "Feature files are located at ${{ inputs.feature_files_dir }}"
         echo "Documentation files are located at ${{ inputs.doc_files_dir }}"
         ls -l && echo "^^^"
         echo $(pwd) && echo "<---"
-        ls -l /home/runner/work/_actions/nn-dma/integrity-check/main && echo "####"
+        ls -l ${{ github.action_path }} && echo "####"
         echo "^^^"
       shell: bash
     - name: Run integrity check
       run: |
         echo "Running integrity check"
-        ACTUAL_DIR=/home/runner/work/_actions/nn-dma/integrity-check/main
-        python3 $ACTUAL_DIR/src/main.py ${{ inputs.feature_files_dir }} ${{ inputs.doc_files_dir }}
+        echo ${{ inputs.exclude_tags }}
+        python3 ${{ github.action_path }}/src/main.py ${{ inputs.feature_files_dir }} ${{ inputs.doc_files_dir }} ${{ inputs.exclude_tags }}
       shell: bash
