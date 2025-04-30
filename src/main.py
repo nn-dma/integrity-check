@@ -193,7 +193,7 @@ if __name__ == "__main__":
     feature_files_path = sys.argv[1]
     docs_path = sys.argv[2]
 
-    # print(sys.argv[3])
+    print(sys.argv[3])
 
     # if len(sys.argv) > 2:
     try:
